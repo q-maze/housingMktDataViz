@@ -1,5 +1,5 @@
 # Location Affordability Tool 
-q-maze, (), ()
+q-maze, suozzi-matt, ewp4x
 
 ## Introduction and Overview
 The team was interested in studying housing data for our project and we were able to find census data on affordability ratings of various cities.
