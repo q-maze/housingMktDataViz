@@ -63,37 +63,45 @@ class LocationAffordabilityIndex:
         fips_df = fips_df[['State-County', 'Area_Name']].copy()
         return fips_df
 
-    #  type 1 - Typical HH - "Median Household" > 80%, < 150%
-    #  type 2 - Moderate HH - < 80%, > 50%
-    #  type 3 - Dual Income HH - > 150%
-    #  type 4 - Low Income HH - < 50%
-    #  type 5 - Single Very Low Income  < 11880
-    #  type 6 - Single Professional HH - > 135%
-    #  type 7 - Single Worker HH - < 50%
-    #  type 8 - Retirees - 80% Median
+
     def add_user_prof(self, user):
+        # classifies user into one of the following types:
+        #  type 1 - Typical HH - "Median Household" > 80%, < 150%
+        #  type 2 - Moderate HH - < 80%, > 50%
+        #  type 3 - Dual Income HH - > 150%
+        #  type 4 - Low Income HH - < 50%
+        #  type 5 - Single Very Low Income  < 11880
+        #  type 6 - Single Professional HH - > 135%
+        #  type 7 - Single Worker HH - < 50%
+        #  type 8 - Retirees - 80% Median
         self.user = user
+        # if user is retired, fill classification column with type_8
         if self.user.classification == 'retired':
             self.df['classification'] = 'type_8'
         else:
+            # else if not retired and single, compare income to criteria set out above
+            # np.where does nothing if the user does not meet the criteria for each row.
             if user.classification == 'single':
                 if self.user.income < 11880:
                     self.df['classification'] = 'type_5'
                 else:
                     self.df['classification'] = np.where(self.df['per_capita_income'] > self.user.income * (1 / 1.35),
-                                                         'type_6', None)
+                                                         'type_6', self.df['classification'])
                     self.df['classification'] = np.where(self.df['per_capita_income'] < self.user.income * (1 / 1.35),
-                                                         'type_7', None)
+                                                         'type_7', self.df['classification'])
+            # else if not retired and dual income, compare income to criteria set out above
+            # np.where does nothing if the user does not meet the criteria for each row.
             else:
                 self.df['classification'] = np.where(self.df['per_capita_income'] > self.user.income * (1 / 0.5),
-                                                     'type_4', None)
+                                                     'type_4', self.df['classification'])
                 self.df['classification'] = np.where(
                     self.user.income * (1 / 0.5) > self.df['per_capita_income'] > self.user.income * (1 / 0.8),
-                    'type_3',
-                    None)
-                self.df['classification'] = np.where(self.df['per_capita_income'] > self.user.income * 1.5, 'type_2', None)
+                    'type_3', self.df['classification'])
+                self.df['classification'] = np.where(self.df['per_capita_income'] > self.user.income * 1.5,
+                                                     'type_2', self.df['classification'])
 
-
+        
+# class for describing the user input
 class LAIUser:
 
     def __init__(self, state, income, living, work, household, transport):
@@ -104,7 +112,7 @@ class LAIUser:
         self.household = household
         self.transport = transport
         self.classification = None
-
+# classifies a user as single, retired or dual income.        
     def classify_user(self):
         if self.work == 'no':
             if self.household == 'single':
