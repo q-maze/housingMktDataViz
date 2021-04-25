@@ -39,31 +39,24 @@ There are multiple fields that are characteristics of the locations:
 * Median commute distance
 * Per capita Income
 
--Per capita Income
-  -This does not have a high correlation with any of the other variables which seems to indicate there is income avaiability regardless of things like employment access, job diversity, and residential density
+Per capita Income
+*This does not have a high correlation with any of the other variables which seems to indicate there is income avaiability regardless of things like employment access, job diversity, and residential density
 
 ![Figure 1](https://github.com/q-maze/location-affordability-tool/blob/main/Report/Scatter%20Plot%20of%20Main%20Measurements.png)
 
--Highest Per Capita Income
-  -The top 25 areas with the highest income appear to be concentrated in a few states.
-  -FL - 8
-  -NY - 7
-  -CA - 4
+Highest Per Capita Income -The top 25 areas with the highest income appear to be concentrated in a few states.
+*FL - 8
+*NY - 7
+*CA - 4
 ![Figure 2](https://github.com/q-maze/location-affordability-tool/blob/main/Report/Highest%20Income%20Per%20Capita.png)
    
 ## Experimental Design
-The following is our step-by-step process from obtaining the data to finding
-results.
+*The following is our step-by-step process from obtaining the data to finding
+results.*
 1. Obtain data
-We browsed several sources including the UCI Data Repository, Kaggle,
-and Data.World to find a dataset that would allow us to apply a range of
-data science techniques. As discussed above, we settled on apartment
-rent data. Since the data had not been uploaded to the UCI Data
-Repository, we obtained it directly from the individual who sourced it (that
-individual employed web-scraping.)
+
 2. Examine & clean the data
-   1. The primary source data contained 22 attributes and 10,000 rows. As discussed above and in the Appendix, we retained the 8 of the attributes we felt would be most useful for analysis. We examined and addressed missing data and outliers.
-   2. The secondary source data continued Starbucks locations with latitude and longitude. We obtained this from Data.World.
+   1. 
 3. Read the two CSV files into 2 dataframes in Python
 4. Append a column to the dataframe with the number of Starbucks within an x (ex: 5) mile radius of each apartment.
 5. Query and analyze the data (including Unit Testing of our code) in the
