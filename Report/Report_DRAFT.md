@@ -49,7 +49,7 @@ There are multiple fields that are characteristics of the locations:
   -FL - 8
   -NY - 7
   -CA - 4
-
+![Figure 2](https://github.com/q-maze/location-affordability-tool/blob/main/Report/Highest%20Income%20Per%20Capita.png)
    
 ## Experimental Design
 The following is our step-by-step process from obtaining the data to finding
