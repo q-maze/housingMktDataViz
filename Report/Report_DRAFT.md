@@ -48,6 +48,7 @@ Highest Per Capita Income -The top 25 areas with the highest income appear to be
 * FL - 8
 * NY - 7
 * CA - 4
+
 ![Figure 2](https://github.com/q-maze/location-affordability-tool/blob/main/Report/Highest%20Income%20Per%20Capita.png)
 
 Lowest Per Capita Income - The lowest 25 areas with smallest income are more spread out across more states.
@@ -58,6 +59,7 @@ Average of Per Capita Income, Typical Income, Housing Cost, Transportation Cost:
    * Clear negative correlation between Transportation cost and income (-.917433) and housing cost (-.532232.
    * Houses further from cities tend to be cheaper so more cost in transportation 
    * Higher percentage of income dedicated to trasnportation cost vs. equity in a house
+
 ![Figure 4](https://github.com/q-maze/location-affordability-tool/blob/main/Report/correlation%20plot.png)
 ![Figure 5](https://github.com/q-maze/location-affordability-tool/blob/main/Report/State%20Mean%20Data%20Scatterplot.png)
 
