@@ -45,7 +45,9 @@ class LocationAffordabilityIndex:
     def get_county_names(self):
         # read in the excel file from the supplied location or if none supplied, Census URL
         fips_df = pd.read_excel(self.fips_data_file_path,
-                                header=None, index_col=None)
+                                header=None,
+                                index_col=None,
+                                engine='openpyxl')
         # rename the columns to something nice
         # NOTE: ALL COLUMNS LABELED IN CASE WE WANT TO ADD FINER DETAIL (PLACE, CITY) TO APPLICATION LATER
         fips_df.columns = ['Sum_Lvl', 'State',
@@ -62,7 +64,6 @@ class LocationAffordabilityIndex:
         # returns only the state-county and area_name, which in this config is only the county names
         fips_df = fips_df[['State-County', 'Area_Name']].copy()
         return fips_df
-
 
     def add_user_prof(self, user):
         # classifies user into one of the following types:
@@ -112,7 +113,8 @@ class LAIUser:
         self.household = household
         self.transport = transport
         self.classification = None
-# classifies a user as single, retired or dual income.        
+# classifies a user as single, retired or dual income.
+
     def classify_user(self):
         if self.work == 'no':
             if self.household == 'single':
@@ -125,7 +127,7 @@ class LAIUser:
 
 # Function to take inputs from the user and validate the values
 def get_filters():
-    STATE_DATA = {'alabama': 'AL', 'alaska': 'AK', 'arizona': 'AZ', 'arkansas': 'AZ', 'california': 'CA',
+    state_data = {'alabama': 'AL', 'alaska': 'AK', 'arizona': 'AZ', 'arkansas': 'AZ', 'california': 'CA',
                   "colorado": 'CO', 'connecticut': 'CT', 'delaware': 'DE', 'florida': 'FL', 'georgia': 'GA',
                   'hawaii': 'HI', 'idaho': 'ID', 'illinois': 'IL', 'indiana': 'IN', 'iowa': 'IA', 'kansas': 'KS',
                   'kentucky': 'KY', 'louisiana': 'LA', 'maine': 'ME', 'maryland': 'MD',
@@ -142,8 +144,8 @@ def get_filters():
     while True:
         try:
             state = str(input('Please enter a State you are interested in: ').lower())
-            if state in STATE_DATA.keys():
-                state = STATE_DATA.get(state)
+            if state in state_data.keys():
+                state = state_data.get(state)
                 break
             print("Please enter a valid state")
         except Exception as e:
@@ -214,7 +216,8 @@ def get_filters():
     return user
 
 if __name__ == '__main__':
-    LAI = LocationAffordabilityIndex(lai_data_loc='smaller_LAI.csv',)
+    LAI = LocationAffordabilityIndex(lai_data_loc='smaller_LAI.csv')
+    LAI.store_fips()
     user_prof = get_filters()
     LAI.add_user_prof(user_prof)
     print(LAI.df['classification'].nunique())
