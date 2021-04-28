@@ -93,12 +93,14 @@ class LocationAffordabilityIndex:
                                  'employment_access_index',
                                  'job_diversity_index',
                                  'average_median_commute_distance',
-                                 'per_capita_income']
+                                 'per_capita_income',
+                                 'State-County']
         result_df = self.by_county
         result_df = result_df[result_df['SF1_BlockGroups_ST_ABBREV'] == self.user.state]
         result_df = result_df[result_df['affordable_area'] == 'a']
         user_classification_cols = [col for col in result_df.columns if self.user.classification in col]
         result_columns = global_result_columns + user_classification_cols
         result_df = result_df[result_df.columns & result_columns]
+        result_df['county'] = result_df['State-County'].str[-3:]
         result_df = result_df.sort_values(by='per_capita_income')
-        print(result_df.head(25))
+        print(result_df['county'].head(25))
