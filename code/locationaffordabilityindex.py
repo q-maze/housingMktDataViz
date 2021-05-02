@@ -82,6 +82,7 @@ class LocationAffordabilityIndex:
             'a')
 
     def show_affordable_locations(self):
+        # columns to be returned to all users regardless of classification
         global_result_columns = ['SF1_BlockGroups_STATE_NAME',
                                  'SF1_BlockGroups_ST_ABBREV',
                                  'Area_Name',
@@ -93,12 +94,21 @@ class LocationAffordabilityIndex:
                                  'employment_access_index',
                                  'job_diversity_index',
                                  'average_median_commute_distance',
-                                 'per_capita_income']
+                                 'per_capita_income',
+                                 'State-County']
+        # makes a copy of the by_county instance variable to work on
         result_df = self.by_county
+        # selects only the state the user is interested in and only the areas which have been deemed affordable
         result_df = result_df[result_df['SF1_BlockGroups_ST_ABBREV'] == self.user.state]
         result_df = result_df[result_df['affordable_area'] == 'a']
+        # creates a list of columns that containt the user's classification (type1, 7, 8)
         user_classification_cols = [col for col in result_df.columns if self.user.classification in col]
+        # creates a list of all columns to be returned
         result_columns = global_result_columns + user_classification_cols
+        # adds the columns to the result dataframe
         result_df = result_df[result_df.columns & result_columns]
+        # creates a county 
+        #result_df['county'] = result_df['State-County'].str[-3:] not needed at moment due to State-County merge with geopandas
+        # sorts by per capita income
         result_df = result_df.sort_values(by='per_capita_income')
-        print(result_df.head(25))
+        return result_df
