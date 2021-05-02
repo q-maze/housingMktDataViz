@@ -82,6 +82,9 @@ following ways:
    6. General bar and scatter plots to understand relationship between variables using df display GUI
 6. Write up our results with tables & visualizations
 
+## Beyond the Original Specifications
+
+For this project, we wanted to create a tool that provided the user to visualize the affordable locations in a given area. Therefore, we created a class, LocationAffordabilityIndex, and the associated user class, LAIUser, to allow the user to create a profile, store that profile in the user object, and then use that user object to create a user specific location affordability index. This index was then visualized using geopandas (citation).
 
 ## Results
 
@@ -93,3 +96,8 @@ following ways:
 2. Future Improvements (if we had more time)
    1. Find more recent data to do a comparison of how specific metropolitan areas fluctuated since 2016.
    2. Create a more accurate user input system to map users to the optimal household type.  Most of the analysis was based on the type 1 - Typical HH - "Median Household"
+
+## Citations
+
+Jordahl, K. (2014). GeoPandas: Python tools for geographic data. URL: Https://Github. Com/Geopandas/Geopandas.
+
