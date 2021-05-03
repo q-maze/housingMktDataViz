@@ -86,8 +86,14 @@ following ways:
 
 For this project, we wanted to create a tool that provided the user to visualize the affordable locations in a given area. Therefore, we created a class, LocationAffordabilityIndex, and the associated user class, LAIUser, to allow the user to create a profile, store that profile in the user object, and then use that user object to create a user specific location affordability index. This index was then visualized using geopandas (citation).
 
-## Results
+## Testing
 
+The following testing was conducted on this project:
+
+1. Testing on the LAIUser class to ensure that the user profile is correctly set-up based on the provided user input. 
+2. Testing on the LocationAffordabilityIndex class to ensure that the application is properly intialized from the supplied data source (scraped or from local file) and that the methods for assigning a user profile object (LAIUser) and returning the correct result dataframe are written correctly.
+
+## Results
 
 ## Conclusions
 1. Key Findings and Use Cases
