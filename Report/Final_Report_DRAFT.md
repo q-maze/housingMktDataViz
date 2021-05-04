@@ -110,4 +110,6 @@ The following testing was conducted on this project:
 ## Citations
 
 Jordahl, K. (2014). GeoPandas: Python tools for geographic data. URL: Https://Github. Com/Geopandas/Geopandas.
+McKinney, W., & others. (2010). Data structures for statistical computing in python. In Proceedings of the 9th Python in Science Conference (Vol. 445, pp. 51–56).
+
 
