@@ -86,6 +86,10 @@ following ways:
 
 For this project, we wanted to create a tool that provided the user to visualize the affordable locations in a given area. Therefore, we created a class, LocationAffordabilityIndex, and the associated user class, LAIUser, to allow the user to create a profile, store that profile in the user object, and then use that user object to create a user specific location affordability index. This index was then visualized using geopandas (citation).
 
+From the UI Prompt we go through various questions to aggregate multiple pieces of information to help determine better affordability.  We focus the analysis based on the state the individual selects and then an output is provided.
+
+![Figure 6](https://github.com/q-maze/location-affordability-tool/blob/main/Report/User%20Input%20Code.png)
+
 ## Testing
 
 The following testing was conducted on this project:
