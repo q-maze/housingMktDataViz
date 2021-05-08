@@ -9,6 +9,8 @@
 ## Introduction
 Our team was interested in learning more about patterns in housing affordability in the continental US.  We wanted to learn about overall trends in housing affordability across different geographic regions and to use this knowledge to create an application for users to identify affordable places based on a target state at the county level.
 
+This has many benefits for users as affordable living is often difficult to find and depends on many factors like proximity to the most developed part of the area and transportation.
+
 ## The Data
 
 The dataset that our team selected for this application was the Location Affordability Index from the United States Department of Housing and Urban Development (United States Department of Housing and Urban Development, 2019). The data set contains data on differenet affordability criteria for each census tract in the United States including:
@@ -65,31 +67,10 @@ For data cleaning and processing we executed the following steps:
 3. Merge county names column from the Census Bureau into the HUD dataset on the FIPS code column.
 5. Examine & clean the data
 6. Query and analyze the data (including Unit Testing of our code) in the following ways:
-   * Regression analysis
    * Visualizations
    * Descriptive Statistics
 
 Once the analysis was complete, we used our knowledge to build an application to visualize affordability based on user input. See section Beyond the Original Specifications.
-
-## Beyond the Original Specifications
-
-For this project, we wanted to create a tool that provided the user to visualize the affordable locations in a given area. To accomplish this we created an application composed of two classes:
-
-* class LocationAffordabilityIndex
-  * Application class which contains the dataset stored in a pandas (McKinney, W., & others. 2010) dataframe and different methods to allow the user to manipulate and visualize this data, including the creation of a user-specific location affordability index.
-* class LAIUser
-  * Representation of the user's profile including desired state, income, work status, household profile, and transportation profile.
-
-The application begins by creating an instance of the LocationAffordabilityIndex using data scraped from the download links, or from a local file. It then calls a method to prompt the user to supply information to build their profile. It then classifies the user based on their input and returns a pandas (McKinney, W., & others. 2010) dataframe that contains the affordable areas for the user to live in. This dataframe was then visualized using geopandas (Jordahl, K. 2014), which uses the state and country FIPS codes from the LocationAffordabilityIndex dataframe, and combines them with a county shape file that allows for visualization of the affordability of each location. 
-
-![Figure 1](https://github.com/q-maze/location-affordability-tool/blob/main/Report/User%20Input%20Code.png)
-
-This is an export for California based resident making $100,000.  The chart shows the least affordable locations based on income per capita.
-![Figure 12](https://github.com/q-maze/location-affordability-tool/blob/main/Report/Figures/California%20Output.png)
-
-Red represents highest median income and blue is lowest
-
-![Figure 13](https://github.com/q-maze/location-affordability-tool/blob/main/Report/Figures/California.png)
 
 ## Results
 
@@ -124,6 +105,26 @@ Average of Per Capita Income, Typical Income, Housing Cost, Transportation Cost:
 ![Figure 5](https://github.com/q-maze/location-affordability-tool/blob/main/Report/correlation%20plot.png)
 ![Figure 6](https://github.com/q-maze/location-affordability-tool/blob/main/Report/State%20Mean%20Data%20Scatterplot.png)
 
+## Beyond the Original Specifications
+
+For this project, we wanted to create a tool that provided the user to visualize the affordable locations in a given area. To accomplish this we created an application composed of two classes:
+
+* class LocationAffordabilityIndex
+  * Application class which contains the dataset stored in a pandas (McKinney, W., & others. 2010) dataframe and different methods to allow the user to manipulate and visualize this data, including the creation of a user-specific location affordability index.
+* class LAIUser
+  * Representation of the user's profile including desired state, income, work status, household profile, and transportation profile.
+
+The application begins by creating an instance of the LocationAffordabilityIndex using data scraped from the download links, or from a local file. It then calls a method to prompt the user to supply information to build their profile. It then classifies the user based on their input and returns a pandas (McKinney, W., & others. 2010) dataframe that contains the affordable areas for the user to live in. This dataframe was then visualized using geopandas (Jordahl, K. 2014), which uses the state and country FIPS codes from the LocationAffordabilityIndex dataframe, and combines them with a county shape file that allows for visualization of the affordability of each location. 
+
+![Figure 1](https://github.com/q-maze/location-affordability-tool/blob/main/Report/User%20Input%20Code.png)
+
+This is an export for California based resident making $100,000.  The chart shows the least affordable locations based on income per capita.
+![Figure 12](https://github.com/q-maze/location-affordability-tool/blob/main/Report/Figures/California%20Output.png)
+
+Red represents highest median income and blue is lowest
+
+![Figure 13](https://github.com/q-maze/location-affordability-tool/blob/main/Report/Figures/California.png)
+
 ## Testing
 
 The following testing was conducted on this project:
@@ -136,9 +137,10 @@ Sample output from our testing can be seen below:
 
 ## Conclusions
 1. Key Findings and Use Cases
-   1. It was interesting to see that population density and 
-   2. 
-   3. This tool could be very useful to users that are interested in relocating to different areas of the country for work or personal reasons. It could also be useful to public officials that are interested in visualizing the affordable locations in their district, in order to promote new residents moving to those areas.
+   1. Income is negatively correlated with Transportation costs (-.917433) meaning wealthier people tend to live closer to the city center and have less transportation costs overall.
+   2. Transportation is also negatively correlated with housing cost (-.532232) just not as closely correlated.  Cheaper houses are further out which then require more transportation cost.  
+   4. There are certain states that tend to have pockets of some of the wealthiest areas like Florida, New York, and California.
+   5. This tool could be very useful to users that are interested in relocating to different areas of the country for work or personal reasons. It could also be useful to public officials that are interested in visualizing the affordable locations in their district, in order to promote new residents moving to those areas.
 
 2. Future Improvements
    1. Find more recent data to do a comparison of how specific metropolitan areas fluctuated since 2016.
