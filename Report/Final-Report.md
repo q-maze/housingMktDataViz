@@ -123,7 +123,8 @@ The following testing was conducted on this project:
 1. Testing on the LAIUser class to ensure that the user profile is correctly set-up based on the provided user input. 
 2. Testing on the LocationAffordabilityIndex class to ensure that the application is properly intialized from the supplied data source (scraped or from local file) and that the methods for assigning a user profile object (LAIUser) and returning the correct result dataframe are written correctly.
 
-Sample output from our testing can be seen in Figure 7: INSERT FIGURE HERE
+Sample output from our testing can be seen below:
+![Figure 7](https://github.com/q-maze/location-affordability-tool/blob/main/Report/Figures/Testing%20Output.png)
 
 ## Conclusions
 1. Key Findings and Use Cases
