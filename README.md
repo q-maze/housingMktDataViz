@@ -12,7 +12,8 @@ There is a dropdown menu to download the Full Dataset in multiple formats.  We f
 ## Report
 
 Find the final report in the report folder - [Final Report](https://github.com/q-maze/location-affordability-tool/blob/main/Report/Final-Report.md)
-[Presentation](https://github.com/q-maze/location-affordability-tool/blob/main/Report/CS%20Project%20Presentation.pdf)
+
+Slides for live presentation - [Presentation](https://github.com/q-maze/location-affordability-tool/blob/main/Report/CS%20Project%20Presentation.pdf)
 
 ## Code and Usage
 
