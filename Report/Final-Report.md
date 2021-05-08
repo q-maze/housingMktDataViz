@@ -3,6 +3,7 @@
 - Quinton Mays (rub9ez)
 - Matt Suozzi (mds5dd)
 - Eric Pratsch (ewp4x)
+- [GitHub Repo](https://github.com/q-maze/location-affordability-tool)
 ---
 ## Introduction
 The team was interested in learning more about patterns in housing affordability in the continental US.  We wanted to learn about overall trends as well as create an application for users to identify affordable places based on a target state at the county level.  
