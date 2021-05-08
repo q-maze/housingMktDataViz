@@ -60,6 +60,8 @@ For data cleaning and processing we executed the following steps:
 * The data in states like Hawaii, Alaska, and Washington DC were also removed due to being outliers in population density and other factors. `<data = data.drop(data.columns[69:82], axis=1)>`
 * Filtered for NaN Data `<data = data.dropna()>`
 
+![Figure 15](https://github.com/q-maze/location-affordability-tool/blob/main/Report/Figures/Income%20Ranges.png)
+
 ## Experimental Design
 *The following is our step-by-step process from obtaining the data to finding results.*
 1. Obtain datasets from Department of Housing and Urban Development (HUD) (United States Department of Housing and Urban Development, 2019) and Census Bureau (United States Census Bureau, 2017) websites via webscraping download links.
@@ -105,6 +107,11 @@ Average of Per Capita Income, Typical Income, Housing Cost, Transportation Cost:
 ![Figure 5](https://github.com/q-maze/location-affordability-tool/blob/main/Report/correlation%20plot.png)
 ![Figure 6](https://github.com/q-maze/location-affordability-tool/blob/main/Report/State%20Mean%20Data%20Scatterplot.png)
 
+Wealth appears to be concentrated on the coasts and higher in mid-atlantic and Northeast.
+
+![Figure 21](https://github.com/q-maze/location-affordability-tool/blob/main/Report/Figures/Heatmap.png)
+![Figure 22](https://github.com/q-maze/location-affordability-tool/blob/main/Report/Figures/Boxplot.png)
+
 ## Beyond the Original Specifications
 
 For this project, we wanted to create a tool that provided the user to visualize the affordable locations in a given area. To accomplish this we created an application composed of two classes:
@@ -140,7 +147,8 @@ Sample output from our testing can be seen below:
    1. Income is negatively correlated with Transportation costs (-.917433) meaning wealthier people tend to live closer to the city center and have less transportation costs overall.
    2. Transportation is also negatively correlated with housing cost (-.532232) just not as closely correlated.  Cheaper houses are further out which then require more transportation cost.  
    4. There are certain states that tend to have pockets of some of the wealthiest areas like Florida, New York, and California.
-   5. This tool could be very useful to users that are interested in relocating to different areas of the country for work or personal reasons. It could also be useful to public officials that are interested in visualizing the affordable locations in their district, in order to promote new residents moving to those areas.
+   5. Regions like Mid-Atlantic and Northeast are wealthier versus many southern or central states.
+   6. This tool could be very useful to users that are interested in relocating to different areas of the country for work or personal reasons. It could also be useful to public officials that are interested in visualizing the affordable locations in their district, in order to promote new residents moving to those areas.
 
 2. Future Improvements
    1. Find more recent data to do a comparison of how specific metropolitan areas fluctuated since 2016.
