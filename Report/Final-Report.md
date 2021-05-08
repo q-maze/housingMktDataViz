@@ -83,6 +83,13 @@ The application begins by creating an instance of the LocationAffordabilityIndex
 
 ![Figure 1](https://github.com/q-maze/location-affordability-tool/blob/main/Report/User%20Input%20Code.png)
 
+This is an export for California based resident making $100,000.  The chart shows the least affordable locations based on income per capita.
+![Figure 12](https://github.com/q-maze/location-affordability-tool/blob/main/Report/Figures/California%20Output.png)
+
+Red represents highest median income and blue is lowest
+
+![Figure 13](https://github.com/q-maze/location-affordability-tool/blob/main/Report/Figures/California.png)
+
 ## Results
 
 There are multiple fields that are characteristics of the locations:
