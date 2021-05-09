@@ -7,13 +7,11 @@
 - [Presentation](https://github.com/q-maze/location-affordability-tool/blob/main/Report/CS%20Project%20Presentation.pdf)
 ---
 ## Introduction
-Our team was interested in learning more about patterns in housing affordability in the continental US.  We wanted to learn about overall trends in housing affordability across different geographic regions and to use this knowledge to create an application for users to identify affordable places based on a target state at the county level.
-
-This has many benefits for users as affordable living is often difficult to find and depends on many factors like proximity to the most developed part of the area and transportation.
+Our team was interested in learning more about patterns in housing affordability within the continental United States.  Our goal for this project was to learn about overall trends in housing affordability across different geographic regions and to use this knowledge to create an application for users to identify affordable places based on a target state at the county level.
 
 ## The Data
 
-The dataset that our team selected for this application was the Location Affordability Index from the United States Department of Housing and Urban Development (United States Department of Housing and Urban Development, 2019). The data set contains data on differenet affordability criteria for each census tract in the United States including:
+The first dataset that our team selected for this application was the Location Affordability Index from the United States Department of Housing and Urban Development (United States Department of Housing and Urban Development, 2019). The data set contains data on differenet affordability criteria for each census tract in the United States including:
 
 * Transportation Cost Data
 * Housing Cost Data
